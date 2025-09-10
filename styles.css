@@ -3,22 +3,110 @@
 */
 
 
-/* TODO 1:
-  - Define CSS variables on :root for brand colors.
-  - Apply a global box-sizing reset using the universal selector (hint use * selector).
-*/
+:root {
 
-/* TODO 2:
-   -Give .site-header & .site-footer a subtle background using var(--card)
-   -Make the .tagline class a bit muted (use var(--muted))
-   -Add a soft box-shadow to .card class
-*/
+  --brand: hsl(221 83% 53%); 
+  --muted: #6b7280;
+  --bg: #f6f7fb;
+  --card: #ffffff;
+}
 
-/* TODO 3:
-   - Set the color to the brand variable and make the text bold for the .color-demo .color-note class.
-   - Set the color to var(--muted) and the font size to 0.95rem for the .color-demo .muted class.
-   - Create a 100% width block with a minimum height of 80px, a background color of your choice, and an optional background gradient for the .bg-sample class.
-*/
+* {
+  
+  box-sizing: border-box;
+}
+
+.site-header, .site-footer {
+  
+  text-align:center;
+  padding:1.25rem;
+  background: var(--card);
+}
+
+.tagline {
+  
+  color: var(--muted);
+}
+
+.card {
+
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-block: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.color-demo .color-note {
+  color: var(--brand);
+  font-weight: bold;
+}
+
+.color-demo .muted {
+
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.bg-sample {
+
+  width: 100%;
+  min-height: 80px;
+  background: linear-gradient(135deg, hsl(221 83% 96%), hsl(221 83% 92%));
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #374151;
+}
+
+.inline-label {
+  display:inline-block;
+  padding:0.25rem 0.5rem;
+  border:1px solid rgba(0,0,0,0.15);
+  border-radius:6px;
+  margin-right:0.25rem;
+}
+.inline-label.alt {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 1px dashed rgba(0,0,0,0.25);
+  border-radius: 6px;
+}
+.copy .title {
+  /* TODO: set the font-size; font-weight; text-transform */
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin: 0.5rem 0;
+}
+
+.copy .intro {
+  /* TODO: make font style italic; set line-height */
+  font-style: italic;
+  line-height: 1.7;
+  color: #334155;
+}
+
+.copy .sample-text {
+  /* TODO: set font type serif; font-size: relative sizing (em) */
+  font-family: serif;
+  font-size: 1.1em;
+  color: #1f2937;
+}
+
+.cta-link {
+  /* TODO: set brand color using variable; set the text to no underline; apply hover styles */
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.cta-link:hover{
+  text-decoration: underline;
+  color: hsl(221 83% 40%);
+}
 
 /* TODO 4:
    - For the .inline-label class: make it behave like an inline-block element with small padding and a border.
@@ -34,6 +122,34 @@
    - For the .cta-link class: remove the underline, set the color to the brand variable, 
      and add a hover style (underline + darker color using rgb/hex/hsl).
 */
+.box {
+  /* TODO: set the width and height; add padding; add border */
+  /* TODO: rounded corners; flex centering */
+  width: 120px;
+  height: 80px;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  background: #fafafa;
+  font-weight:600;
+}
+.b1 {
+  /* TODO (WRITE): unique style */
+  background: #e0f2fe;
+  border-color: #93c5fd;
+   }
+.b2 {
+  /* TODO (WRITE): unique style */
+  background: #dcfce7;
+  border-color: #86efac;}
+.b3 {
+  /* TODO (WRITE): unique style */
+  background: #fee2e2;
+  border-color: #fca5a5; 
+}
 
 /* TODO 6:
    - For the .box class: set a fixed width (e.g., 120px) and height (e.g., 80px), 
@@ -44,6 +160,47 @@
    - For the .b2 class: apply a unique background or border style.
    - For the .b3 class: apply a unique background or border style.
 */
+.toolbar {
+  /* TODO: Set the display to flex; justify-content to have space between; align-items to center; add gap */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px dashed rgba(0,0,0,0.1);
+}
+
+.btn {
+  /* TODO: Add padding; add hover effect on button*/
+  padding: 0.55rem 0.9rem;
+  background: #eef2ff;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: #e0e7ff;
+}
+
+.product-grid {
+  /* TODO: Set display to flex; make the flex wrap; add gap; basis ~140px */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.product-grid .item {
+  /* TODO: place the item in center; set min-height; and add a background color*/
+  flex: 1 1 140px; 
+  display:grid;
+  place-items:center;
+  min-height:80px;
+  background: #f3f4f6;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+}
 
 /* TODO 7:
    - For the .toolbar class: make it a flex container, distribute items with space-between, 
@@ -55,6 +212,7 @@
    - For the .product-grid .item class: center the content, set a minimum height, 
      and apply a soft background.
 */
+
 
 /* TODO 8:
    - For the .static-box class: keep the default document flow but style it for visibility.
