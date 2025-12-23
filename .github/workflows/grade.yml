@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # IMPORTANT: allow grade.cjs to scan past commits and ignore workflow/bot commits
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -107,15 +110,11 @@ jobs:
             print("Wrote artifacts/grade.json:", out)
           PY
 
-      # ✅ Removed the "Display grading feedback in Actions Summary" step
-      # because grade.cjs already writes the summary to $GITHUB_STEP_SUMMARY,
-      # and this step was causing the summary to appear twice.
-
       - name: Upload grading artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lab3-2-grading-feedback
+          name: lab-3-2-grading-feedback
           path: |
             artifacts/grade.csv
             artifacts/grade.json
